@@ -16,10 +16,10 @@ function App() {
     console.log(USER_DETAILS);
   };
   return (
-    <div className="App">
+    <>
       <AddUser onAddUser={addUserHandler}/>
       <UserLists items={users}/>
-    </div>
+    </>
   );
 }
 

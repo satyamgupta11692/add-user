@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Wrapper from "../Helpers/Wrapper";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import ErrorModal from "../UI/ErrorModal";
@@ -39,42 +40,40 @@ const AddUser = (props) => {
     setEnteredUserAge(event.target.value);
   };
   const errorHandler = () =>{
-      console.log('setting error handler to null');
       setError(null);
   };
-
-  return (
-    <div>
-      {error && (<ErrorModal
+  return ( <Wrapper>
+    {error && (
+      <ErrorModal
         title={error.title}
         message={error.message}
         onConfirm={errorHandler}
-      ></ErrorModal>)}
-      <Card className={classes.input}>
-        <form onSubmit={addUserHandler}>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input
-              id="username"
-              type="text"
-              value={enteredUserName}
-              onChange={userNameChangeHandler}
-            ></input>
-          </div>
-          <div className="input">
-            <label htmlFor="age">Age(in years)</label>
-            <input
-              id="age"
-              type="number"
-              value={enteredUserAge}
-              onChange={userNameAgeChangeHandler}
-            ></input>
-          </div>
-          <Button type="submit">Add User</Button>
-        </form>
-      </Card>
-    </div>
-  );
+      />
+    )}
+    <Card className={classes.input}>
+      <form onSubmit={addUserHandler}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            value={enteredUserName}
+            onChange={userNameChangeHandler}
+          ></input>
+        </div>
+        <div className="input">
+          <label htmlFor="age">Age(in years)</label>
+          <input
+            id="age"
+            type="number"
+            value={enteredUserAge}
+            onChange={userNameAgeChangeHandler}
+          ></input>
+        </div>
+        <Button type="submit">Add User</Button>
+      </form>
+    </Card>
+  </Wrapper>);
 };
 
 export default AddUser;
