@@ -45,11 +45,11 @@ const AddUser = (props) => {
 
   return (
     <div>
-      {error && <ErrorModal
+      {error && (<ErrorModal
         title={error.title}
         message={error.message}
         onConfirm={errorHandler}
-      ></ErrorModal>}
+      ></ErrorModal>)}
       <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
           <div>
